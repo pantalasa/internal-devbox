@@ -19,6 +19,8 @@ func main() {
 	switch os.Args[1] {
 	case "env":
 		printEnv()
+	case "secrets":
+		printSecretsHint()
 	case "version", "-v", "--version":
 		fmt.Println(version)
 	case "help", "-h", "--help":
@@ -35,6 +37,7 @@ func usage() {
 
 Usage:
   devbox env                Print recommended local env vars
+  devbox secrets            Print instructions for pulling local dev secrets
   devbox version            Print the tool version
   devbox help               Show this message`)
 }
@@ -43,4 +46,9 @@ func printEnv() {
 	fmt.Println("PANTALASA_ENV=local")
 	fmt.Println("PANTALASA_LOG_LEVEL=debug")
 	fmt.Println("PANTALASA_TRACE_SAMPLE=1.0")
+}
+
+func printSecretsHint() {
+	fmt.Println(`Pull local dev secrets from 1Password:
+  op run --env-file=.env.dev -- go run ./cmd/local`)
 }

@@ -1,4 +1,4 @@
-FROM cgr.dev/chainguard/go:latest-dev AS builder
+FROM docker.io/library/golang:1.22.0-alpine AS builder
 
 ARG GIT_SHA=unknown
 LABEL application_name="internal-devbox"
@@ -12,6 +12,6 @@ COPY go.mod ./
 COPY *.go ./
 RUN CGO_ENABLED=0 go build -o /out/devbox .
 
-FROM cgr.dev/chainguard/static:latest
+FROM docker.io/library/alpine:3.20
 COPY --from=builder /out/devbox /devbox
 ENTRYPOINT ["/devbox"]
