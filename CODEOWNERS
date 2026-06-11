@@ -1,1 +1,3 @@
-* @pantalasa/devex
+# Default owners for everything in this repository.
+# Team-based ownership for continuity (no single-person bus factor).
+* @pantalasa/engineering @pantalasa/devex

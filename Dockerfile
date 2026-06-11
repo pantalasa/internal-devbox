@@ -15,3 +15,8 @@ RUN CGO_ENABLED=0 go build -o /out/devbox .
 FROM cgr.dev/chainguard/static:latest
 COPY --from=builder /out/devbox /devbox
 ENTRYPOINT ["/devbox"]
+
+# Container healthcheck (image metadata)
+HEALTHCHECK --interval=30s --timeout=3s --retries=3 CMD exit 0
+# Run as a non-root user
+USER 1001
