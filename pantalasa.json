@@ -1,0 +1,19 @@
+{
+  "service": {
+    "name": "internal-devbox",
+    "owner": "devex@pantalasa.org",
+    "domain": "engineering.internal",
+    "tier": "tier-2"
+  },
+  "deployment": {
+    "platform": "kubernetes",
+    "region": "us-east-1",
+    "replicas": 2,
+    "rollout_strategy": "rolling"
+  },
+  "business": {
+    "capability": "dev-tooling",
+    "cost_center": "CC-1050",
+    "compliance": []
+  }
+}
